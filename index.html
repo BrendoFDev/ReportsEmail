@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      function checkInput(event) {
+        const input = event.target;
+        const value = input.value;
+
+        // Verifica se o valor é um número
+        if (isNaN(value)) {
+          // Se não for um número, remove os caracteres inválidos
+          input.value = value.replace(/[^0-9]/g, "");
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="CSS/index.css" />
+    <title>Denuncia SG Bombeiros</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="IMG/escudo_bombeiro_2.0_icon.ico"
+    />
+  </head>
+  <body>
+    <div id="box_all">
+      <div id="box_form">
+        <div id="form">
+          <div id="box_title">
+            <h2>Denuncias Space Group</h2>
+            <img src="IMG/escudo_bombeiro_2.0.png" width="60px" height="60px" />
+          </div>
+
+          <form action="Envi.php" method="post" enctype="multipart/form-data">
+            <div id="nome" class="box_field">
+              <label for="txtnome">Seu Nome</label>
+              <input
+                class="textbox"
+                type="text"
+                name="nome"
+                id="txtnome"
+                required
+              />
+            </div>
+            
+            <div id="cidade" class="box_field">
+              <label for="txtcidade">Nome da Cidade</label>
+              <input
+                class="textbox"
+                type="text"
+                name="cidade"
+                id="txtcidade"
+                required
+              />
+            </div>
+
+            <div id="id" class="box_field">
+              <label for="txtid">ID</label>
+              <input
+                class="textbox"
+                type="text"
+                name="id"
+                id="txtid"
+                oninput="checkInput(event);"
+                required
+              />
+            </div>
+
+            <div id="data" class="box_field">
+              <label for="txtdata">Data do Ocorrido</label>
+              <input
+                class="textbox"
+                type="date"
+                name="data"
+                id="txtdata"
+                required
+              />
+            </div>
+
+            <div id="url" class="box_field">
+              <label for="txturl">URL</label>
+              <input
+                class="textbox"
+                type="text"
+                name="url"
+                id="txturl"
+                required
+              />
+            </div>
+
+            <div id="desc" class="box_field">
+              <label for="txtdesc">Descrição do ocorrido</label>
+              <textarea
+                class="textbox"
+                name="desc"
+                id="txtdesc"
+                cols="35"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <div id="file" class="box_field">
+              <label for="addfile">Selecione arquivo para envio</label>
+              <input
+                class="textbox"
+                type="file"
+                name="arquivo"
+                value="none"
+                id="addfile"
+              />
+            </div>
+            <div id="buttons">
+              <button type="submit" onclick="Enviando();">
+                Enviar Denuncia
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="img_space">
+        <img src="IMG/spacegroup_2.0_png.png" width="400px" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
